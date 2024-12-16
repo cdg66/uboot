@@ -7,15 +7,15 @@ ifndef CONFIG_SPL_BUILD
 INPUTS-y += u-boot.its kernel.its
 endif
 
-AIC_UBOOT_ITS :=
-ifeq ($(wildcard $(AIC_UBOOT_ITS)),)
+#AIC_UBOOT_ITS :=
+#ifeq ($(wildcard $(AIC_UBOOT_ITS)),)
 	AIC_UBOOT_ITS := $(srctree)/arch/$(ARCH)/dts/u-boot.its.dtsi
-endif
-ifeq ($(wildcard $(AIC_UBOOT_ITS)),)
-$(AIC_UBOOT_ITS):
-	@echo "could not find u-boot.its.dtsi"
-	@exit 1
-endif
+#endif
+#ifeq ($(wildcard $(AIC_UBOOT_ITS)),)
+#$(AIC_UBOOT_ITS):
+#	@echo "could not find u-boot.its.dtsi"
+#	@exit 1
+#endif
 
 # Pre-Process and generate AIC u-boot.its
 aicdtc_cpp_flags  = -Wp,-MD,$(depfile).pre.tmp -nostdinc                 \
